@@ -26,6 +26,8 @@ module Sidekiq
         update_process_name
         start_new_pool
 
+        Sidekiq::Pool.run_master_hooks
+
         wait_for_signals
       end
 

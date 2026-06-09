@@ -6,6 +6,7 @@ require_relative '../lib/sidekiq/pool/cli'
 
 begin
   cli = Sidekiq::Pool::CLI.instance
+  Sidekiq::Pool.instance_variable_set(:@pooled, true)
   cli.parse
   cli.run
 rescue => e
